@@ -1,0 +1,282 @@
+/* ============================================================================
+   Effects
+   Geometry and keyframes for the manga-panel language: diagonal cuts, speed
+   lines, ink bloom, glitch, and the palette flip. GSAP drives most of these
+   through custom properties; the keyframes here cover the ambient loops.
+   ========================================================================= */
+
+/* ---- The frame ---------------------------------------------------------- */
+
+/* Everything, WebGL included, sits inside this. One tween on --invert flips
+   the entire composition — the JoJo moment — without touching any component.
+   will-change is set only while a flip is armed, see .flip-armed. */
+.frame {
+  position: fixed;
+  inset: 0;
+  transform: translate3d(var(--shake), 0, 0);
+}
+
+.frame-flip {
+  filter: invert(var(--invert)) hue-rotate(calc(var(--invert) * 180deg));
+}
+
+.flip-armed {
+  will-change: filter;
+}
+
+/* ---- Diagonal cuts ------------------------------------------------------ */
+
+/* The single shared angle. Panels, dividers and the wipe all use it, which is
+   what makes the layout read as one cut page rather than assorted shapes. */
+.cut-top {
+  clip-path: polygon(0 var(--cut, 3.2rem), 100% 0, 100% 100%, 0 100%);
+}
+
+.cut-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut, 3.2rem)), 0 100%);
+}
+
+.cut-corner {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--cut, 1.5rem)),
+    calc(100% - var(--cut, 1.5rem)) 100%,
+    0 100%
+  );
+}
+
+/* A hairline that runs at the shared angle; used instead of <hr>. */
+.rule-slice {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.5) 12%,
+    var(--accent) 50%,
+    rgb(255 255 255 / 0.5) 88%,
+    transparent
+  );
+  transform: rotate(calc(var(--slice) * -0.12));
+}
+
+/* ---- Panel wipe --------------------------------------------------------- */
+
+/* The stack overhangs the viewport on every side. It has to: shearing a slab
+   wider than the screen pushes its corners well above and below the frame, and
+   the overhang is what stops daylight showing through at the left and right
+   extremes on very wide displays. 26% vertical covers up to about 21:9. */
+.wipe-stack {
+  position: absolute;
+  inset: -26% -32%;
+}
+
+/* Four slabs, each a quarter of the stack. The shear and the horizontal
+   offsets are set by GSAP, not here, so the timeline owns all of the motion
+   and nothing fights a CSS transform mid-tween. */
+.wipe-slab {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background: #040406;
+  will-change: transform;
+}
+
+.wipe-slab:nth-child(1) {
+  top: 0;
+}
+.wipe-slab:nth-child(2) {
+  top: 25%;
+}
+.wipe-slab:nth-child(3) {
+  top: 50%;
+}
+.wipe-slab:nth-child(4) {
+  top: 75%;
+}
+
+/* Hot edge on each slab, so the cut reads as a blade pass, not a black bar. */
+.wipe-slab::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bone) 35%, var(--blood) 70%, transparent);
+  box-shadow: 0 0 20px 2px rgb(255 59 31 / 0.65);
+}
+
+/* ---- Speed lines -------------------------------------------------------- */
+
+.speed-line {
+  stroke: var(--bone);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.speed-line-hot {
+  stroke: var(--blood);
+}
+
+/* ---- Answer feedback ---------------------------------------------------- */
+
+@keyframes glitch-slice {
+  0% {
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+  }
+  12% {
+    clip-path: inset(18% 0 62% 0);
+    transform: translate3d(-9px, 0, 0);
+  }
+  24% {
+    clip-path: inset(74% 0 8% 0);
+    transform: translate3d(11px, 0, 0);
+  }
+  36% {
+    clip-path: inset(42% 0 36% 0);
+    transform: translate3d(-6px, 0, 0);
+  }
+  48% {
+    clip-path: inset(5% 0 85% 0);
+    transform: translate3d(8px, 0, 0);
+  }
+  60% {
+    clip-path: inset(60% 0 22% 0);
+    transform: translate3d(-4px, 0, 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.glitching {
+  animation: glitch-slice 0.44s steps(1, end) 2;
+}
+
+/* The hollow mask does not fade, it cuts in and out on hard steps, the way a
+   held frame flickers in the anime. */
+@keyframes mask-flicker {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  6%,
+  13% {
+    opacity: 0.92;
+  }
+  16%,
+  27% {
+    opacity: 0;
+  }
+  31%,
+  38% {
+    opacity: 0.7;
+  }
+  42%,
+  58% {
+    opacity: 0.1;
+  }
+  62%,
+  70% {
+    opacity: 0.85;
+  }
+  74% {
+    opacity: 0.05;
+  }
+}
+
+.mask-flicker {
+  animation: mask-flicker 1.15s steps(1, end) forwards;
+}
+
+/* ゴゴゴ — the menacing rumble. Each glyph shivers out of phase. */
+@keyframes menace-rumble {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-1.5px, 1px, 0) rotate(-1.2deg);
+  }
+  50% {
+    transform: translate3d(1px, -1.5px, 0) rotate(0.9deg);
+  }
+  75% {
+    transform: translate3d(1.5px, 1px, 0) rotate(-0.6deg);
+  }
+}
+
+.menace > span {
+  display: inline-block;
+  animation: menace-rumble 0.22s linear infinite;
+}
+
+.menace > span:nth-child(3n + 1) {
+  animation-duration: 0.19s;
+}
+.menace > span:nth-child(3n + 2) {
+  animation-duration: 0.26s;
+}
+
+/* ---- HUD pulses --------------------------------------------------------- */
+
+/* Under five seconds the timer housing breathes red. Slow enough to register
+   as urgency rather than as a blinking error light. */
+@keyframes danger-pulse {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      0 0 0 1px rgb(255 59 31 / 0.5),
+      0 0 22px -4px rgb(255 59 31 / 0.55);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      0 0 0 1px rgb(255 59 31 / 0.95),
+      0 0 46px 2px rgb(255 59 31 / 0.9);
+  }
+}
+
+.timer-danger {
+  animation: danger-pulse 0.85s ease-in-out infinite;
+}
+
+/* ---- Reduced motion -----------------------------------------------------
+   Ambient loops stop entirely. Transitions that communicate state change are
+   kept but shortened, since removing them would make the quiz harder to
+   follow, not easier.
+   ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sheen::before,
+  .menace > span,
+  .timer-danger,
+  .mask-flicker,
+  .glitching {
+    animation: none !important;
+  }
+
+  .mask-flicker {
+    opacity: 0.55;
+  }
+
+  .frame-flip {
+    filter: none;
+  }
+
+  .frame {
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.12s !important;
+    animation-duration: 0.12s !important;
+    animation-iteration-count: 1 !important;
+  }
+}

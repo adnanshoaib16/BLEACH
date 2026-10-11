@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" class="bleach-root">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#050507" />
+    <meta name="color-scheme" content="dark" />
+    <title>Reiatsu — a Bleach quiz</title>
+    <meta
+      name="description"
+      content="Ten questions on Bleach lore, fifteen seconds each. Earn your rank."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Shippori+Mincho+B1:wght@400;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    />
+
+    <style>
+      /* Inlined so the first paint is already black; the app mounts into it
+         without a white flash while the font and JS payloads land. */
+      html.bleach-root,
+      body {
+        margin: 0;
+        background: #050507;
+        color: #ffffff;
+      }
+      #root {
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      This quiz is rendered in the browser and needs JavaScript enabled.
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

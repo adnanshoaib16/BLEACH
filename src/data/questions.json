@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "question": "What is the name of Ichigo Kurosaki's zanpakutō?",
+    "answers": ["Engetsu", "Nozarashi", "Zangetsu", "Sode no Shirayuki"],
+    "correct": 2,
+    "difficulty": "easy",
+    "arc": "Agent of the Shinigami"
+  },
+  {
+    "id": 2,
+    "question": "Senbonzakura belongs to which captain?",
+    "answers": ["Jūshirō Ukitake", "Byakuya Kuchiki", "Shunsui Kyōraku", "Sajin Komamura"],
+    "correct": 1,
+    "difficulty": "easy",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 3,
+    "question": "What happens to anyone who witnesses the release of Aizen's Kyōka Suigetsu?",
+    "answers": [
+      "Their zanpakutō refuses to answer them",
+      "They fall under complete hypnosis of all five senses",
+      "Their reiatsu is sealed for a full day",
+      "Their wounds are reflected back onto them"
+    ],
+    "correct": 1,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 4,
+    "question": "Which division did Sōsuke Aizen captain before his betrayal?",
+    "answers": ["Third", "Fifth", "Ninth", "Twelfth"],
+    "correct": 1,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 5,
+    "question": "How does Rukia Kuchiki release her shikai?",
+    "answers": [
+      "“Scatter, Sode no Shirayuki”",
+      "“Rain over the frosted heavens, Sode no Shirayuki”",
+      "“Dance, Sode no Shirayuki”",
+      "“Reign, Sode no Shirayuki”"
+    ],
+    "correct": 2,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 6,
+    "question": "Which Espada holds the rank of Cuatro, the fourth?",
+    "answers": [
+      "Grimmjow Jaegerjaquez",
+      "Nnoitra Gilga",
+      "Tier Harribel",
+      "Ulquiorra Cifer"
+    ],
+    "correct": 3,
+    "difficulty": "easy",
+    "arc": "Hueco Mundo"
+  },
+  {
+    "id": 7,
+    "question": "What is the name of Ulquiorra Cifer's resurrección?",
+    "answers": ["Murciélago", "Pantera", "Tiburón", "Los Lobos"],
+    "correct": 0,
+    "difficulty": "medium",
+    "arc": "Hueco Mundo"
+  },
+  {
+    "id": 8,
+    "question": "What is Ichigo's bankai called?",
+    "answers": ["Daiguren Hyōrinmaru", "Tensa Zangetsu", "Kamishini no Yari", "Zanka no Tachi"],
+    "correct": 1,
+    "difficulty": "easy",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 9,
+    "question": "Who is the Primera Espada?",
+    "answers": [
+      "Baraggan Louisenbairn",
+      "Szayelaporro Granz",
+      "Coyote Starrk",
+      "Yammy Llargo"
+    ],
+    "correct": 2,
+    "difficulty": "hard",
+    "arc": "Fake Karakura Town"
+  },
+  {
+    "id": 10,
+    "question": "Baraggan Louisenbairn embodies which aspect of death?",
+    "answers": ["Aging", "Destruction", "Intoxication", "Emptiness"],
+    "correct": 0,
+    "difficulty": "hard",
+    "arc": "Fake Karakura Town"
+  },
+  {
+    "id": 11,
+    "question": "Who leads the Gotei 13 when the series begins?",
+    "answers": [
+      "Shunsui Kyōraku",
+      "Retsu Unohana",
+      "Genryūsai Shigekuni Yamamoto",
+      "Jūshirō Ukitake"
+    ],
+    "correct": 2,
+    "difficulty": "easy",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 12,
+    "question": "Yamamoto's shikai, the oldest fire-type zanpakutō, is named…",
+    "answers": ["Zanka no Tachi", "Ryūjin Jakka", "Suzumushi", "Katen Kyōkotsu"],
+    "correct": 1,
+    "difficulty": "medium",
+    "arc": "Fake Karakura Town"
+  },
+  {
+    "id": 13,
+    "question": "Kisuke Urahara founded which Soul Society institution?",
+    "answers": [
+      "The Kidō Corps",
+      "The Onmitsukidō",
+      "The Shinigami Research and Development Institute",
+      "The Royal Guard"
+    ],
+    "correct": 2,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 14,
+    "question": "What does the Hōgyoku do?",
+    "answers": [
+      "It dissolves the boundary between Soul Reaper and Hollow",
+      "It opens a permanent gate to Hueco Mundo",
+      "It stores the reiatsu of a thousand souls",
+      "It reforges a broken zanpakutō"
+    ],
+    "correct": 0,
+    "difficulty": "medium",
+    "arc": "Arrancar"
+  },
+  {
+    "id": 15,
+    "question": "Rank the grades of Menos Grande from weakest to strongest.",
+    "answers": [
+      "Adjuchas, Gillian, Vasto Lorde",
+      "Gillian, Vasto Lorde, Adjuchas",
+      "Gillian, Adjuchas, Vasto Lorde",
+      "Vasto Lorde, Adjuchas, Gillian"
+    ],
+    "correct": 2,
+    "difficulty": "medium",
+    "arc": "Arrancar"
+  },
+  {
+    "id": 16,
+    "question": "Who taught Uryū Ishida the Quincy arts?",
+    "answers": [
+      "Ryūken Ishida, his father",
+      "Sōken Ishida, his grandfather",
+      "Kisuke Urahara",
+      "He taught himself from his grandfather's notes"
+    ],
+    "correct": 1,
+    "difficulty": "medium",
+    "arc": "Agent of the Shinigami"
+  },
+  {
+    "id": 17,
+    "question": "Yhwach commands which army?",
+    "answers": ["Xcution", "The Wandenreich", "The Zero Division", "The Onmitsukidō"],
+    "correct": 1,
+    "difficulty": "easy",
+    "arc": "Thousand-Year Blood War"
+  },
+  {
+    "id": 18,
+    "question": "Which Schrift does Yhwach himself bear?",
+    "answers": [
+      "“A” — The Almighty",
+      "“B” — The Balance",
+      "“X” — The X-Axis",
+      "“M” — The Miracle"
+    ],
+    "correct": 0,
+    "difficulty": "medium",
+    "arc": "Thousand-Year Blood War"
+  },
+  {
+    "id": 19,
+    "question": "Which Sternritter carries the letter “B” — The Balance?",
+    "answers": [
+      "Bazz-B",
+      "Bambietta Basterbine",
+      "Jugram Haschwalth",
+      "Gerard Valkyrie"
+    ],
+    "correct": 2,
+    "difficulty": "hard",
+    "arc": "Thousand-Year Blood War"
+  },
+  {
+    "id": 20,
+    "question": "Who was the very first Kenpachi?",
+    "answers": ["Retsu Unohana", "Kenpachi Kiganjō", "Ichibē Hyōsube", "Ōetsu Nimaiya"],
+    "correct": 0,
+    "difficulty": "hard",
+    "arc": "Thousand-Year Blood War"
+  },
+  {
+    "id": 21,
+    "question": "Who forged the first asauchi, the blank blade every Soul Reaper starts with?",
+    "answers": ["Ichibē Hyōsube", "Tenjirō Kirinji", "Kirio Hikifune", "Ōetsu Nimaiya"],
+    "correct": 3,
+    "difficulty": "hard",
+    "arc": "Thousand-Year Blood War"
+  },
+  {
+    "id": 22,
+    "question": "Orihime Inoue's six fairies are known collectively as…",
+    "answers": ["Shun Shun Rikka", "Santen Kesshun", "Sōten Kisshun", "Koten Zanshun"],
+    "correct": 0,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 23,
+    "question": "Yasutora Sado's right arm is called…",
+    "answers": [
+      "Brazo Izquierda del Diablo",
+      "Brazo Derecha de Gigante",
+      "El Directo",
+      "La Muerte"
+    ],
+    "correct": 1,
+    "difficulty": "hard",
+    "arc": "Hueco Mundo"
+  },
+  {
+    "id": 24,
+    "question": "Tōshirō Hitsugaya captains which division?",
+    "answers": ["Third", "Sixth", "Tenth", "Thirteenth"],
+    "correct": 2,
+    "difficulty": "easy",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 25,
+    "question": "Hitsugaya's bankai is named…",
+    "answers": [
+      "Hyōrinmaru",
+      "Kōkō Gonryō Rikyū",
+      "Hakka no Togame",
+      "Daiguren Hyōrinmaru"
+    ],
+    "correct": 3,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 26,
+    "question": "Who held the title of Substitute Soul Reaper before Ichigo?",
+    "answers": [
+      "Shūkurō Tsukishima",
+      "Kūgo Ginjō",
+      "Riruka Dokugamine",
+      "Isshin Kurosaki"
+    ],
+    "correct": 1,
+    "difficulty": "medium",
+    "arc": "The Lost Agent"
+  },
+  {
+    "id": 27,
+    "question": "Mayuri Kurotsuchi captains which division?",
+    "answers": ["Twelfth", "Ninth", "Second", "Fourth"],
+    "correct": 0,
+    "difficulty": "easy",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 28,
+    "question": "What makes Gin Ichimaru's bankai, Kamishini no Yari, so dangerous?",
+    "answers": [
+      "It turns every wound it inflicts back on his enemy",
+      "Its blade extends for kilometres in an instant",
+      "It swallows every drop of reiatsu it touches",
+      "It splits into a thousand airborne petals"
+    ],
+    "correct": 1,
+    "difficulty": "medium",
+    "arc": "Fake Karakura Town"
+  },
+  {
+    "id": 29,
+    "question": "Isshin Kurosaki once captained which division?",
+    "answers": ["Fifth", "Ninth", "Tenth", "Eleventh"],
+    "correct": 2,
+    "difficulty": "hard",
+    "arc": "Arrancar"
+  },
+  {
+    "id": 30,
+    "question": "The Visored are former Soul Reapers who gained what?",
+    "answers": ["Fullbring", "Quincy powers", "Hollow powers", "A resurrección"],
+    "correct": 2,
+    "difficulty": "easy",
+    "arc": "Arrancar"
+  },
+  {
+    "id": 31,
+    "question": "Kenpachi Zaraki's zanpakutō is named…",
+    "answers": ["Hōzukimaru", "Ashisogi Jizō", "Tenken", "Nozarashi"],
+    "correct": 3,
+    "difficulty": "medium",
+    "arc": "Thousand-Year Blood War"
+  },
+  {
+    "id": 32,
+    "question": "Which kidō is Hadō #90?",
+    "answers": ["Kurohitsugi", "Dankū", "Shakkahō", "Sōren Sōkatsui"],
+    "correct": 0,
+    "difficulty": "hard",
+    "arc": "Fake Karakura Town"
+  },
+  {
+    "id": 33,
+    "question": "Binding spells belong to which class of kidō?",
+    "answers": ["Hadō", "Bakudō", "Kaidō", "Shunpo"],
+    "correct": 1,
+    "difficulty": "easy",
+    "arc": "Soul Society"
+  },
+  {
+    "id": 34,
+    "question": "What is Ichigo's Final Getsuga Tenshō technique called?",
+    "answers": ["Getsuga Jūjishō", "Gran Rey Cero", "Mugetsu", "Mugen"],
+    "correct": 2,
+    "difficulty": "medium",
+    "arc": "Fake Karakura Town"
+  },
+  {
+    "id": 35,
+    "question": "Which of these is Renji Abarai's shikai command?",
+    "answers": [
+      "“Snap, Tobiume”",
+      "“Growl, Haineko”",
+      "“Roar, Zabimaru”",
+      "“Reap, Kazeshini”"
+    ],
+    "correct": 2,
+    "difficulty": "medium",
+    "arc": "Soul Society"
+  }
+]

@@ -1,0 +1,45 @@
+/* Custom layers load before Tailwind so utilities can always override a
+   surface or effect at the call site. */
+@import './tokens.css';
+@import './surfaces.css';
+@import './effects.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #root {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  /* Wide-tracked HUD lettering. Sentence case, not all caps — the tracking
+     alone carries the technical register. */
+  .hud-label {
+    font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .numeric {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Safe-area padding for notched phones in landscape, where the HUD rail
+     would otherwise sit under the sensor housing. */
+  .pad-safe {
+    padding-left: max(var(--gutter), env(safe-area-inset-left));
+    padding-right: max(var(--gutter), env(safe-area-inset-right));
+  }
+
+  .pad-safe-y {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}

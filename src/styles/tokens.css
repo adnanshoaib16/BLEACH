@@ -1,0 +1,159 @@
+/* ============================================================================
+   Tokens
+   Monochrome base, with two accent families that never mix inside one element:
+   the ink/blood pair carries Bleach, the chrome/reiatsu pair carries the
+   Y2K HUD. Interaction states borrow across the two on purpose.
+   ========================================================================= */
+
+:root {
+  /* Base — true black and true white, because the whole look rests on
+     high-contrast separation rather than tinted greys. */
+  --sumi: #050507;
+  --sumi-800: #0b0d12;
+  --sumi-600: #141922;
+  --sumi-400: #232a35;
+  --bone: #ffffff;
+
+  /* Bleach accents */
+  --blood: #ff3b1f;
+  --ember: #ff6b00;
+
+  /* Sony-futurism accents */
+  --reiatsu: #00e5ff;
+  --ice: #e0ffff;
+
+  /* Chrome ramp, used for text-clip gradients and bevels */
+  --chrome-hi: #ffffff;
+  --chrome-mid: #8f9cab;
+  --chrome-lo: #1b222b;
+
+  /* Live channels. Everything that reacts to gameplay reads from these, and
+     GSAP writes them, so one tween can re-colour an entire screen. */
+  --accent: var(--blood);
+  --accent-soft: rgb(255 59 31 / 0.22);
+  --glow: 0;          /* 0..1  reiatsu bloom amount on HUD chrome          */
+  --aberration: 0px;  /* channel split distance for HUD text               */
+  --invert: 0;        /* 0..1  JoJo palette flip across the whole frame    */
+  --shake: 0px;       /* impact offset                                     */
+  --veil: 0;          /* 0..1  dim behind modal-ish feedback               */
+
+  /* Rhythm */
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 5.5rem);
+  --rule: 1px;
+  --slice: 7deg; /* the shared diagonal. Every cut in the UI uses it. */
+  /* Per-item indent for the answer stack. Zero on narrow screens, where the
+     horizontal room is worth more than the diagonal rhythm. */
+  --step: 0rem;
+
+  --ease-slice: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-ink: cubic-bezier(0.33, 0.01, 0, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --step: 1.35rem;
+  }
+}
+
+/* Correct answers swing the whole frame cool; wrong answers swing it hot.
+   Set on <html> so even the WebGL canvas wrapper inherits it. */
+:root[data-mood='correct'] {
+  --accent: var(--reiatsu);
+  --accent-soft: rgb(0 229 255 / 0.22);
+}
+
+:root[data-mood='wrong'] {
+  --accent: var(--blood);
+  --accent-soft: rgb(255 59 31 / 0.3);
+}
+
+/* ============================================================================
+   Base
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sumi);
+  color: var(--bone);
+  font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', system-ui, sans-serif;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden; /* the stage is fixed-height; panels manage their own scroll */
+  overscroll-behavior: none;
+}
+
+/* Kanji is always a graphic element here, never body copy, so it gets the
+   brush face and never wraps or breaks. */
+.kanji {
+  font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  font-weight: 800;
+  font-feature-settings: 'palt' 1;
+  white-space: nowrap;
+}
+
+.display {
+  font-family: 'Bodoni Moda', Didot, 'Times New Roman', serif;
+  font-optical-sizing: auto;
+}
+
+/* Vertical kanji column down the edge of the panel. */
+.kanji-column {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.22em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--reiatsu);
+  outline-offset: 3px;
+}
+
+/* Keyboard users get the blade-cut focus ring; pointer users never see it. */
+.focus-slice:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 1px var(--sumi),
+    0 0 0 3px var(--reiatsu),
+    0 0 26px -2px rgb(0 229 255 / 0.65);
+}
+
+::selection {
+  background: var(--blood);
+  color: var(--bone);
+}
+
+/* Thin chrome scrollbar for the one place that scrolls. */
+.scroll-chrome {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sumi-400) transparent;
+}
+.scroll-chrome::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-chrome::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--chrome-mid), var(--sumi-400));
+  border-radius: 99px;
+}
